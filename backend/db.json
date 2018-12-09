@@ -1,0 +1,70 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "title": "Optio molestias id quia eum",
+      "body": "Quo et expedita modi cum officia vel magni doloribus qui repudiandae vero nisi sit quos veniam quod sed accusamus veritatis error Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas",
+      "postDate": " 10:23    07.12.2017"
+    },
+    {
+      "id": 4,
+      "title": "Nesciunt iure omnis dolorem tempora et accusantium",
+      "body": "Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas",
+      "postDate": " 10:23    07.12.2018"
+    },
+    {
+      "id": 5,
+      "title": "Nesciunt iure omnis dolorem tempora et accusantium",
+      "body": "Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas Consectetur animi nesciunt iure dolore enim quia ad veniam autem ut quam aut nobis et est aut quod aut provident voluptas autem voluptas",
+      "postDate": " 10:23    07.12.2018"
+    },
+    {
+      "body": "Когда небо погружается во тьму каверзной ночи, птицы тихо кричат о весне. И если ты думаешь что волк о камень зубы точит, значит есть что-то , что делает твой мозг не здоровЕй.",
+      "title": "Несколько слов о бессонных ночах",
+      "id": 6,
+      "postDate": " 22:14    09.12.2018"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "fromPostId": 3,
+      "postId": 3,
+      "commentDate": " 10:13    02.11.2018",
+      "body": " .Quia molestiae reprehenderit quasi aspernatur aut expedita occaecati aliquam eveniet laudantium omnis quibusdam delectus saepe quia accusamus maiores nam est cum et ducimus et vero voluptates excepturi deleniti ratione.Quia molestiae reprehenderit quasi aspernatur aut expedita occaecati aliquam eveniet laudantium omnis quibusdam delectus saepe quia accusamus maiores nam est cum et ducimus et vero voluptates excepturi deleniti ratione"
+    },
+    {
+      "id": 2,
+      "fromPostId": 5,
+      "postId": 3,
+      "commentDate": " 9:23    07.12.2018",
+      "body": "Non et atque occaecati deserunt quas accusantium unde odit nobis qui voluptatem quia voluptas consequuntur itaque dolor et qui rerum deleniti ut occaecati, "
+    },
+    {
+      "id": 3,
+      "fromPostId": 3,
+      "postId": 3,
+      "commentDate": " 8:23    06.12.2018",
+      "body": "Non et atque occaecati deserunt quas accusantium unde odit nobis qui voluptatem quia voluptas consequuntur itaque dolor et qui rerum deleniti ut occaecati"
+    },
+    {
+      "id": 4,
+      "fromPostId": 6,
+      "postId": 3,
+      "commentDate": " 11:33    07.12.2018",
+      "body": "Non et atque occaecati deserunt quas accusantium unde odit nobis qui voluptatem quia voluptas consequuntur itaque dolor et qui rerum deleniti ut occaecati"
+    },
+    {
+      "body": "Чо за бабуйня???",
+      "id": 5,
+      "commentDate": " 23:34    09.12.2018",
+      "fromPostId": 4
+    },
+    {
+      "body": "Кажется что-то пошло не так",
+      "id": 6,
+      "commentDate": " 23:35    09.12.2018",
+      "fromPostId": 3
+    }
+  ]
+}
