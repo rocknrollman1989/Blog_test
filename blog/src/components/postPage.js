@@ -38,8 +38,9 @@ class PostPage extends React.Component{
 render(){
     
     const { posts } = this.props
-    // console.log(this.props)
-    const ourLastPosts = posts.length>0?(posts.map((post)=>{
+    
+    const ourLastPosts = posts ?(posts.map((post)=>{
+        console.log(this.props)
         return(
             <div className='short-post' key={post.id}>
                 <h3>{post.title}</h3>
@@ -49,7 +50,7 @@ render(){
             </div>
             
         )}
-    )):(<p>There is no posts at all</p>)// закончить!!!
+    )):(<p>Loading...</p>)// закончить!!!
       
     
 

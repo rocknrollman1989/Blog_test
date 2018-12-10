@@ -11,11 +11,9 @@ class Home extends React.Component{
     }
 
 render(){
-   
     const{ comments, posts } = this.props
-    
     const ourLastPosts = posts.length? (posts.slice(-3).map((post)=>{
-    
+
         return(
         <Link to={`/Post/${post.id}`} key={post.id}>
             <div className='short-post' >

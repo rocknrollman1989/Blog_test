@@ -8,59 +8,63 @@ import {PostWrapperSC} from '../lib/componentSt'
 class Post extends React.Component{
     constructor(){
         super()
+
         this.state = {
         deletePost: false,
-        nameComment: ''
-
+        resaveOurPost: false,
+        nameComment: '',
         }
+        this.updateFieldValue = this.updateFieldValue.bind(this)
     }
+
     componentDidMount(){
-        this.props.fetchDataFromServer() 
+        this.props.fetchDataFromServer()
     }
     deleteOurPost = () => {
-        
+
         this.props.deleteOurPostFromServer(this.props.post);
         this.setState({deletePost : true});
-        
+
     }
+
     updateFieldValue = (event) => {
+
         const { name, value } = event.target;
         this.setState({ [name]: value });
+
     }
 
     resaveOurPost = () => {
-
+        this.setState({resaveOurPost: !this.state.resaveOurPost})
+        this.setState({postBody: this.props.post.body})
+        console.log(this.state)
     }
 
     onSubmit=(event)=>{
         event.preventDefault()
-       
         let ourCommentData = {
             body: this.state.nameComment,
             fromPostId: this.props.post.id
         }
-        // console.log(ourCommentData)
-
         this.props.addCommentSendPost(ourCommentData)
-        
         }
 
+    correctSave = (event) => {
+
+    }
 render(){
     if(this.state.deletePost === true){
        return <Redirect  to='/Posts' push/>
     }
-   
+
     const { post, comment } = this.props
-    
 
     const ourPost = post ? (
         <div className="single-post">
-            
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <p style={{color: '#6495ed'}}>{post.postDate}</p>
-            {/* <button onClick={this.resaveOurPost}>Редактировать пост</button> add input for change */}
-
+            {/* <button onClick={this.resaveOurPost}>Редактировать пост</button> */}
             <button onClick={this.deleteOurPost}>Удалить пост</button>
         </div>
     ):(
