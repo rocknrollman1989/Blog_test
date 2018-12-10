@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link }from 'react-router-dom'
 import { connect } from 'react-redux'
 import {fetchDataFromServer, addPostSendPost} from '../actions/action'
 import { PostPageSC } from '../lib/componentSt'
+import PostIndivid from '../components/postIndiv'
 
 
 
@@ -13,7 +13,8 @@ class PostPage extends React.Component{
         this.state = {
         namePost: '',
         post: '',
-        isActive: 'form-close'
+        isActive: 'form-close',
+
     }
 }
     componentWillMount(){
@@ -27,38 +28,34 @@ class PostPage extends React.Component{
         this.setState({isActive: 'form-close'})
     }
     updateFieldValue = (event) => {
+
         const { name, value } = event.target;
         this.setState({ [name]: value });
     }
-    onSubmit=(event)=>{
-    event.preventDefault()
-    this.props.addPostSendPost(this.state)
-    
-    }
-render(){
-    
-    const { posts } = this.props
-    
-    const ourLastPosts = posts ?(posts.map((post)=>{
-        console.log(this.props)
-        return(
-            <div className='short-post' key={post.id}>
-                <h3>{post.title}</h3>
-                <p>{post.body.slice(0,200) + `...`}</p>
-                <p style={{color: '#6495ed'}}>{post.postDate}</p>
-                <Link to={`/Post/${post.id}`}><button>read more!</button></Link>
-            </div>
-            
-        )}
-    )):(<p>Loading...</p>)// закончить!!!
-      
-    
 
+    
+    onSubmit=(event)=>{
+
+        event.preventDefault()
+        this.props.addPostSendPost(this.state)
+        this.setState({isActive: 'form-close'})
+
+    }
+    render(){
+
+    const { posts, match } = this.props
+    const ourPosts = posts ?(posts.map((post)=>{
+        return(
+            <PostIndivid post={post} key={post.id} match={match}/>
+        )}
+    )):(<p>Loading...</p>)
+      
     return(
         <PostPageSC>
             <h1>Hello, look at our posts!</h1>
             <div className='create-post-wrapper'>
-                <button onClick={this.handleClickOpen} className="btn-create-post">Create a new post!</button>
+            {this.state.isActive === 'form-close'?
+            <button onClick={this.handleClickOpen} className="btn-create-post">Create a new post!</button>: null }
                 <form onSubmit={this.onSubmit} id="post-form" className={this.state.isActive}>
                     <label>
                     Name of the post:
@@ -76,7 +73,7 @@ render(){
             </div>
 
             <div className="all-posts-wrapper">
-                <div>{ourLastPosts}</div>
+                <div>{ourPosts}</div>
             </div>
         </PostPageSC>
         )

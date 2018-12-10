@@ -13,6 +13,7 @@ class Post extends React.Component{
         deletePost: false,
         resaveOurPost: false,
         nameComment: '',
+
         }
         this.updateFieldValue = this.updateFieldValue.bind(this)
     }
@@ -21,19 +22,14 @@ class Post extends React.Component{
         this.props.fetchDataFromServer()
     }
     deleteOurPost = () => {
-
         this.props.deleteOurPostFromServer(this.props.post);
         this.setState({deletePost : true});
-
     }
 
     updateFieldValue = (event) => {
-
         const { name, value } = event.target;
         this.setState({ [name]: value });
-
     }
-
     resaveOurPost = () => {
         this.setState({resaveOurPost: !this.state.resaveOurPost})
         this.setState({postBody: this.props.post.body})
@@ -53,6 +49,8 @@ class Post extends React.Component{
 
     }
 render(){
+    
+
     if(this.state.deletePost === true){
        return <Redirect  to='/Posts' push/>
     }
@@ -75,7 +73,6 @@ render(){
         // console.log(comment)
         return(
             <div className='single-comment' key={comment.id}>
-                
                 <p>{comment.body}</p>
                 <p style={{color: '#6495ed'}}>{comment.commentDate}</p>
             </div>

@@ -136,6 +136,11 @@ a{
         .form-open{
             display: flex;
             flex-direction: column;
+            span{
+                display: block;
+                color: red;
+                text-align: center;
+            }
             label{
                 padding: 5px 15px;
                 

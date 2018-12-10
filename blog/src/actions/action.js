@@ -28,7 +28,6 @@ export const addPostSendPost = (data) => {
     }
 }
 
-
 export const deleteOurPostFromServer = (data) => {
     return (dispatcher) => {
         let deleteData = data
