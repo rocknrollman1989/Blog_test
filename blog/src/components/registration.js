@@ -48,7 +48,7 @@ render(){
                         Enter e-mail
                         <input type="text" value={this.state.email} name='email' onChange={this.onChange} placeholder={"email" } />
                     </label>
-                    <span style={{color: 'red'}}>{this.props.infoForUser}</span>
+                    <span style={{color: 'red'}}>{this.props.regResultMessage}</span>
                     <button type='submit'>Register!</button>
                 </form>
                 <button onClick={this.closeRegistrationMenu}>not Now</button>
@@ -61,7 +61,7 @@ render(){
 const mapStateToProp = (state) => {
     
     return {
-        infoForUser: state.infoForUser
+        regResultMessage: state.regResultMessage
     }
 }
  const mapDispatchToProps = (dispatch) => {
