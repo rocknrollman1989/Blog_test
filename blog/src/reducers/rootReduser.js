@@ -1,7 +1,9 @@
 
 const initialState = {
     comments : [],
-    posts : []
+    posts : [],
+    infoForUser: "",
+    user: {}
 }
 
 
@@ -27,6 +29,16 @@ const rootReduser = (state = initialState, action) => {
             return{
                 ...state,
                 comments: [...state.comments, action.newCom.data],
+            }
+        case 'USER_REGISTER_ERROR':
+            return{
+                ...state,
+                infoForUser: action.infoForUser
+            }
+        case 'USER_REGISTER_DONE':
+            return{
+                ... state,
+                infoForUser: action.infoForUser
             }
             default:
     }

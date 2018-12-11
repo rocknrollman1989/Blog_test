@@ -40,12 +40,27 @@ export const deleteOurPostFromServer = (data) => {
 
 export const addCommentSendPost = (data) => {
     return (dispatcher) => {
-        let newCom = { body: data.body,
+        let newCom = {body: data.body,
                     commentDate: moment().format(' HH:mm    DD.MM.YYYY'),
                     fromPostId: data.fromPostId }
         return axios.post('http://localhost:3001/comments', newCom)
         .then(() => {
             dispatcher({type: 'ADD_NEW_COMMENT',  data})
         })
+    }
+}
+export const registerNewUser = (dataUser) => {
+    return (dispatcher) => {
+        return axios.get('http://localhost:3001/users')
+            .then((users) => {
+                let ressault = users.data.find((user)=>{
+                    return  dataUser.nickName === user.nickName
+                })
+                    ressault ? 
+                    dispatcher({type: 'USER_REGISTER_ERROR',  infoForUser: 'Такой Уже Есть Юзер'}):
+                    axios.post('http://localhost:3001/users', dataUser)
+                        .then(()=> dispatcher({type: 'USER_REGISTER_DONE',  infoForUser: ''}))
+                }
+            )
     }
 }

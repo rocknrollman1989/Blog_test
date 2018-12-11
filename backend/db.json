@@ -132,5 +132,26 @@
       "fromPostId": 5,
       "id": 11
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "nickName": "Rocknroll Man",
+      "pass": "12345",
+      "email": "retrocarman1989@gmail.com"
+    },
+    {
+      "id": "2",
+      "nickName": "Хреныч",
+      "pass": "123456",
+      "email": "1234@gmail.com"
+    },
+    {
+      "nickName": "Леня Твердохлеб",
+      "pass": "123456789",
+      "email": "lklk@ds.sd",
+      "openRegister": true,
+      "id": "SJCVs7pJ4"
+    }
   ]
 }

@@ -28,7 +28,7 @@ class Post extends React.Component{
 
     updateFieldValue = (event) => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        this.setState({ [name] : value });
     }
     resaveOurPost = () => {
         this.setState({resaveOurPost: !this.state.resaveOurPost})

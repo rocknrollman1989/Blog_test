@@ -1,6 +1,8 @@
 import React from 'react'
 import { HeaderSC } from '../lib/componentSt'
 import { Link }from 'react-router-dom'
+import Registration from './registration'
+
 
 const Header = () =>{
 
@@ -10,6 +12,7 @@ return(
         <div>
             <Link to='/'>Home</Link>
             <Link to='/Posts'>Posts</Link>
+            <Registration/>
         </div>
     </HeaderSC>
     
