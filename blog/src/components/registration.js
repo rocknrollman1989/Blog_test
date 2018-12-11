@@ -4,33 +4,40 @@ import { connect } from 'react-redux'
 import { registerNewUser } from '../actions/action'
 
 
+
 class Registration extends React.Component{
         state = {
         nickName: '',
+        subBTN: '',
         pass:  '',
         email: '',
-        openRegister: false 
         };
  
 openRegisterForm = () => {
-    this.setState({ openRegister: !this.state.openRegister})
+    this.setState({ openRegister: true})
 }
 closeRegistrationMenu = () => {
-    this.setState({ openRegister: !this.state.openRegister})
+    this.setState({ openRegister: false})
 }
 
 onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name] : value });
+
 }
 
 onSubmit = (event) => {
-    event.preventDefault();
-    this.props.registerNewUser(this.state)
+
+event.preventDefault();
+this.props.registerNewUser(this.state)
+
 }
+
+
 
 render(){
 
+const { errorRegisterMessage, doneRegisterMessage } = this.props
     return(
         <RegisterFormSC>
         <button onClick={this.openRegisterForm} >Register me!</button>
@@ -48,20 +55,21 @@ render(){
                         Enter e-mail
                         <input type="text" value={this.state.email} name='email' onChange={this.onChange} placeholder={"email" } />
                     </label>
-                    <span style={{color: 'red'}}>{this.props.regResultMessage}</span>
-                    <button type='submit'>Register!</button>
+                    {doneRegisterMessage? null :<button type='submit'>Register!</button>}
+                    <span style={{color: 'red'}}>{errorRegisterMessage}</span>
+                    <span style={{color: 'green'}}>{doneRegisterMessage}</span>
                 </form>
-                <button onClick={this.closeRegistrationMenu}>not Now</button>
+                <button onClick={this.closeRegistrationMenu}>Close</button>
             </div>
         </RegisterFormSC>
-    )
-}
-
+        )
+    }
 }
 const mapStateToProp = (state) => {
     
     return {
-        regResultMessage: state.regResultMessage
+        errorRegisterMessage: state.errorRegisterMessage,
+        doneRegisterMessage: state.doneRegisterMessage
     }
 }
  const mapDispatchToProps = (dispatch) => {

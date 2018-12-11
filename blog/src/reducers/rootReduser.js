@@ -2,7 +2,8 @@
 const initialState = {
     comments : [],
     posts : [],
-    regResultMessage: "",
+    errorRegisterMessage: null,
+    doneRegisterMessage: '',
     user: {}
 }
 
@@ -33,18 +34,17 @@ const rootReduser = (state = initialState, action) => {
         case 'USER_REGISTER_ERROR':
             return{
                 ...state,
-                regResultMessage: action.regResultMessage
+                errorRegisterMessage: action.errorRegisterMessage,
             }
         case 'USER_REGISTER_DONE':
             return{
-                ... state,
-                regResultMessage: action.regResultMessage
+                ...state, 
+                errorRegisterMessage: null,
+                doneRegisterMessage: action.doneRegisterMessage
             }
-            default:
-    }
 
-    return {
-    ...state
+        default:
+        return  state
     }
 }
 

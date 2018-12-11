@@ -57,9 +57,9 @@ export const registerNewUser = (dataUser) => {
                     return  dataUser.nickName === user.nickName
                 })
                     existedUser ? 
-                    dispatch({type: 'USER_REGISTER_ERROR',  regResultMessage: 'Такой Уже Есть Юзер'}):
+                    dispatch({type: 'USER_REGISTER_ERROR',  errorRegisterMessage: 'Такой Уже Есть Юзер'}):
                     axios.post('http://localhost:3001/users', dataUser)
-                        .then(()=> dispatch({type: 'USER_REGISTER_DONE',  regResultMessage: ''}))
+                        .then(()=> dispatch({type: 'USER_REGISTER_DONE',  doneRegisterMessage: 'Спасибо за регистрацию'}))
                 }
             )
     }
