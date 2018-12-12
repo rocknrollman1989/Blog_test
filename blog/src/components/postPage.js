@@ -43,7 +43,7 @@ class PostPage extends React.Component{
     }
     render(){
 
-    const { posts, match } = this.props
+    const { posts, match, isLogin } = this.props
     const ourPosts = posts ?(posts.map((post)=>{
         return(
             <PostIndivid post={post} key={post.id} match={match}/>
@@ -53,9 +53,9 @@ class PostPage extends React.Component{
     return(
         <PostPageSC>
             <h1>Hello, look at our posts!</h1>
-            <div className='create-post-wrapper'>
-            {this.state.isActive === 'form-close'?
-            <button onClick={this.handleClickOpen} className="btn-create-post">Create a new post!</button>: null }
+            {isLogin ? <div className='create-post-wrapper'>
+                {this.state.isActive === 'form-close'?
+                <button onClick={this.handleClickOpen} className="btn-create-post">Create a new post!</button>: null }
                 <form onSubmit={this.onSubmit} id="post-form" className={this.state.isActive}>
                     <label>
                     Name of the post:
@@ -70,7 +70,7 @@ class PostPage extends React.Component{
                     <input type="submit" value="Create a new Post!!" className="btn-create-post" />
                 <div onClick={this.handleClickClose} style={{textAlign: 'center'}}className="btn-create-post">Not today:(</div>
                 </form>
-            </div>
+            </div> : null }
 
             <div className="all-posts-wrapper">
                 <div>{ourPosts}</div>
@@ -83,7 +83,8 @@ class PostPage extends React.Component{
 
 const mapStateToProps = (state) =>{
     return {
-      posts: state.posts
+      posts: state.posts,
+      isLogin: state.isLogin
     }
   }
 const mapDispatchToProps = (dispatch) =>{

@@ -55,7 +55,7 @@ render(){
        return <Redirect  to='/Posts' push/>
     }
 
-    const { post, comment } = this.props
+    const { post, comment, isLogin } = this.props
 
     const ourPost = post ? (
         <div className="single-post">
@@ -63,7 +63,7 @@ render(){
             <p>{post.body}</p>
             <p style={{color: '#6495ed'}}>{post.postDate}</p>
             {/* <button onClick={this.resaveOurPost}>Редактировать пост</button> */}
-            <button onClick={this.deleteOurPost}>Удалить пост</button>
+            { isLogin ? <button onClick={this.deleteOurPost}>Удалить пост</button> : null }
         </div>
     ):(
         <p>Он ушел... но обещал вернуться...</p>
@@ -85,15 +85,16 @@ render(){
         return(
             <PostWrapperSC>
                 {ourPost}
+                { isLogin ? null : <h4 style={{marginLeft: '40px'}}>You need to Log IN to write a comment</h4>}
                 <h3>Anonim coments:)</h3>
                 {ourComments}
-                <form onSubmit={this.onSubmit} className="comment-form">
+                {isLogin ? <form onSubmit={this.onSubmit} className="comment-form">
                     <label>
                     <input type="text" value={this.state.name} name='nameComment' onChange={this.updateFieldValue}
                         placeholder={'comment'} />
                     </label>
                 <input type="submit" value="Create a new comment!!" className="btn-create-post" />
-                </form>
+                </form> : null}
             </PostWrapperSC>
         )
     }
@@ -105,8 +106,9 @@ const mapStateToProps = (state, ownProps) =>{
     let idCommentToShow = ownProps.match.params.Post_Number
     
     return {
-      comment: state.comments.filter(comment => comment.fromPostId === Number(idCommentToShow)),
-      post: state.posts.find(post => post.id === Number(idPostToShow))
+    isLogin: state.isLogin,
+    comment: state.comments.filter(comment => comment.fromPostId === Number(idCommentToShow)),
+    post: state.posts.find(post => post.id === Number(idPostToShow))
     }
   }
 const mapDispatchToProps = (dispatch) =>{
