@@ -4,7 +4,10 @@ const initialState = {
     posts : [],
     errorRegisterMessage: null,
     doneRegisterMessage: '',
-    user: {}
+    user: null,
+    isLogin: false,
+    errorUserNotFound: '',
+
 }
 
 
@@ -41,6 +44,24 @@ const rootReduser = (state = initialState, action) => {
                 ...state, 
                 errorRegisterMessage: null,
                 doneRegisterMessage: action.doneRegisterMessage
+            }
+        case 'USER_NOT_FOUND':
+            return{
+                ...state,
+                errorUserNotFound: 'Ошибка в логине/пароле. А возможно что Вы не залогинены'
+            }
+        case 'USER_LOG_IN':
+            return{
+                ...state,
+                errorUserNotFound: '',
+                isLogin: true,
+                user: action.loginData.nickName
+            }
+        case 'LOG_OUT_THIS_USER':
+        return{
+            ...state,
+            isLogin: false,
+            user: null
             }
 
         default:

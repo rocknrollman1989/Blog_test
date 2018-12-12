@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import{ MyBlogBody } from './lib/componentSt'
+import { connect } from 'react-redux'
 
 
 
@@ -15,12 +16,13 @@ class App extends Component {
 
 
   render() {
-   
+
+    
     return (
     
       <BrowserRouter>
         <MyBlogBody>
-          <Header/>
+          <Header isLogin={this.props.isLogin}/>
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route  path='/Posts' component={PostPage}/>
@@ -33,5 +35,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) =>{
+   
+  return{
+      isLogin: state.isLogin,
+  }
+}
 
-export default App
+
+export default connect(mapStateToProps)(App)

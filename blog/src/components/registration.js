@@ -33,8 +33,6 @@ this.props.registerNewUser(this.state)
 
 }
 
-
-
 render(){
 
 const { errorRegisterMessage, doneRegisterMessage } = this.props
@@ -72,6 +70,7 @@ const mapStateToProp = (state) => {
         doneRegisterMessage: state.doneRegisterMessage
     }
 }
+
  const mapDispatchToProps = (dispatch) => {
     return{
         registerNewUser: (dataUser) => (dispatch(registerNewUser(dataUser)))

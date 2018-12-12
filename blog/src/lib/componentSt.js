@@ -68,7 +68,58 @@ button:hover{
     position: absolute;
     top: 150px;
     left: 50%;
-    margin-left: -107px;
+    margin-left: -127px;
+    background: rgb(196,224,224,1);
+    border-radius: 30px;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px;
+        label{
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            color: darkcyan;
+
+            input{
+                width:90%;
+                background: rgb(163, 212, 212);
+                border-radius: 30px;
+                border: none;
+                padding: 10px;
+                color:rgb(0, 139, 139);
+                font-size: 16px;
+                margin: 5px 0;
+            }
+        }
+    }
+}
+
+`
+export const LoginPopupSC = styled.div`
+button{
+    border-radius: 30px;
+    border: none;
+    padding: 10px;
+    color:rgb(0, 139, 139);
+    font-size: 16px;
+    margin: 5px 0;
+    background: border-box;
+}
+button:hover{
+    color :rgb(7, 80, 80);
+    font-weight: bold;
+}
+.login-form{
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin-left: -127px;
     background: rgb(196,224,224,1);
     border-radius: 30px;
 

@@ -64,3 +64,24 @@ export const registerNewUser = (dataUser) => {
             )
     }
 }
+export const logInUser = (loginData) =>{
+    return (dispatch) => {
+        return axios.get('http://localhost:3001/users')
+            .then((users)=>{
+              let findAUser = users.data.some((user)=>{
+               return user.nickName === loginData.nickName&&user.pass===loginData.pass
+              })
+            return findAUser
+            })
+            .then((findAUser)=>{
+                findAUser? dispatch({type: "USER_LOG_IN", loginData}) : dispatch({type: "USER_NOT_FOUND", loginData: null })
+            })
+
+    }
+}
+
+export const logOutUser = () => {
+    return {
+       type: 'LOG_OUT_THIS_USER' 
+    }
+}

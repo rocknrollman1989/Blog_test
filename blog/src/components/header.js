@@ -2,9 +2,9 @@ import React from 'react'
 import { HeaderSC } from '../lib/componentSt'
 import { Link }from 'react-router-dom'
 import Registration from './registration'
+import LoginComp from './loginComp'
 
-
-const Header = () =>{
+const Header = ({isLogin}) =>{
 
 return(
     <HeaderSC>
@@ -12,7 +12,8 @@ return(
         <div>
             <Link to='/'>Home</Link>
             <Link to='/Posts'>Posts</Link>
-            <Registration/>
+            { isLogin ? null : <Registration/>}
+            <LoginComp/>
         </div>
     </HeaderSC>
     
