@@ -12,7 +12,7 @@ const initialState = {
 
 
 const rootReduser = (state = initialState, action) => {
-    console.log(state, action)
+    // console.log(state, action)
     switch(action.type){
         case 'FETCH_DATA_FROM_SERVER':
             return{

@@ -5,7 +5,6 @@ export const fetchDataFromServer = () =>{
     return (dispatch)=>{
        return axios.get('http://localhost:3001/db')
         .then((data)=>{
-            // console.log(data)
             dispatch({ 
                 type: 'FETCH_DATA_FROM_SERVER',
                 data

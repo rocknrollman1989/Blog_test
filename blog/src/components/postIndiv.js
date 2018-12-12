@@ -4,7 +4,7 @@ import { Link }from 'react-router-dom'
 class PostIndivid extends React.Component{
 
 render(){
-    // console.log(this.props)
+
     const { post } = this.props
         return(
             <div className='short-post' key={post.id}>
