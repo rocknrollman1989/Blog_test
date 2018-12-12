@@ -32,7 +32,7 @@ const rootReduser = (state = initialState, action) => {
         case 'ADD_NEW_COMMENT':
             return{
                 ...state,
-                comments: [...state.comments, action.newCom.data],
+                comments: [...state.comments, action.data],
             }
         case 'USER_REGISTER_ERROR':
             return{

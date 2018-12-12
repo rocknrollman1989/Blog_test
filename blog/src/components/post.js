@@ -45,24 +45,19 @@ class Post extends React.Component{
         this.props.addCommentSendPost(ourCommentData)
         }
 
-    correctSave = (event) => {
-
-    }
 render(){
-    
+
 
     if(this.state.deletePost === true){
        return <Redirect  to='/Posts' push/>
     }
 
     const { post, comment, isLogin } = this.props
-
     const ourPost = post ? (
         <div className="single-post">
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <p style={{color: '#6495ed'}}>{post.postDate}</p>
-            {/* <button onClick={this.resaveOurPost}>Редактировать пост</button> */}
             { isLogin ? <button onClick={this.deleteOurPost}>Удалить пост</button> : null }
         </div>
     ):(
@@ -70,7 +65,6 @@ render(){
     ) 
     
     const ourComments = comment ? (comment.map((comment)=>{
-        // console.log(comment)
         return(
             <div className='single-comment' key={comment.id}>
                 <p>{comment.body}</p>
@@ -109,6 +103,7 @@ const mapStateToProps = (state, ownProps) =>{
     isLogin: state.isLogin,
     comment: state.comments.filter(comment => comment.fromPostId === Number(idCommentToShow)),
     post: state.posts.find(post => post.id === Number(idPostToShow))
+
     }
   }
 const mapDispatchToProps = (dispatch) =>{
